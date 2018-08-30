@@ -3,7 +3,7 @@ var mongoose= require('mongoose');
 var bodyparser= require('body-parser');
 
 var app = express();
-
+var port = process.env.PORT || 8080;
 app.use(bodyparser.json());
 var CustomerDetails= require('./model/customerModel');
 mongoose.connect('mongodb://localhost/vijaytest');
@@ -133,5 +133,6 @@ const result =Math.round(number1)+ Math.round(number2);
 response.json(result);
 });
 
-app.listen(4500);
-console.log('The application is running at port 4500');
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
+});
