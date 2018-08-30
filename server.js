@@ -130,7 +130,24 @@ app.post('/webhook',function(request,response){
 var number1=request.body.queryResult.parameters.number_integer;
 var number2=request.body.queryResult.parameters.number_integer2;
 const result =Math.round(number1)+ Math.round(number2);
-response.json(result);
+var jsonresponse = {fulfillmentText: result,
+payload: {
+    google: {
+      expectUserResponse: true,
+      richResponse: {
+        items: [
+          {
+            simpleResponse: {
+              textToSpeech: result
+            }
+          }
+        ]
+      }
+    }
+}
+
+};
+response.json(jsonresponse);
 });
 
 app.listen(port, function() {
