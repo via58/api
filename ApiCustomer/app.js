@@ -133,5 +133,3 @@ const result =Math.round(number1)+ Math.round(number2);
 response.json(result);
 });
 
-app.listen(4500);
-console.log('The application is running at port 4500');
