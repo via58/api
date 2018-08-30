@@ -1,7 +1,7 @@
 var express = require('express');
 var mongoose= require('mongoose');
 var bodyparser= require('body-parser');
-
+var products = require('./products.json');
 var app = express();
 var port = process.env.PORT || 8080;
 app.use(bodyparser.json());
@@ -147,7 +147,7 @@ payload: {
 }
 
 };
-response.json(jsonresponse);
+response.json(products);
 });
 
 app.listen(port, function() {
