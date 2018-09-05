@@ -159,7 +159,8 @@ var jsonresponse = {
       }
     }
   }
-}response.json(jsonresponse);
+}
+response.json(jsonresponse);
 });
 
 app.listen(port, function() {
