@@ -127,50 +127,39 @@ response.json(Number(result));
 app.post('/webhook',function(request,response){
 var tokenFromRequest=request.body.responseId;
 var jsonresponse = {
-    "conversationToken": "{\"state\":null,\"data\":{}}",
-    "expectUserResponse": true,
-    "expectedInputs": [
-        {
-            "inputPrompt": {
-                "richInitialPrompt": {
-                    "items": [
-                        {
-                            "simpleResponse": {
-                                "textToSpeech": "Math and prime numbers it is!"
-                            }
-                        },
-                        {
-                            "basicCard": {
-                                "title": "Math & prime numbers",
-                                "formattedText": "42 is an even composite number. It\n    is composed of three distinct prime numbers multiplied together. It\n    has a total of eight divisors. 42 is an abundant number, because the\n    sum of its proper divisors 54 is greater than itself. To count from\n    1 to 42 would take you about twenty-one…",
-                                "image": {
-                                    "url": "https://example.google.com/42.png",
-                                    "accessibilityText": "Image alternate text"
-                                },
-                                "buttons": [
-                                    {
-                                        "title": "Read more",
-                                        "openUrlAction": {
-                                            "url": "https://example.google.com/mathandprimes"
-                                        }
-                                    }
-                                ],
-                                "imageDisplayOptions": "CROPPED"
-                            }
-                        }
-                    ],
-                    "suggestions": []
-                }
-            },
-            "possibleIntents": [
+  "data": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": "This is a Basic Card:"
+            }
+          },
+          {
+            "basicCard": {
+              "title": "Card Title",
+              "image": {
+                "url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+                "accessibilityText": "Google Logo"
+              },
+              "buttons": [
                 {
-                    "intent": "actions.intent.TEXT"
+                  "title": "Button Title",
+                  "openUrlAction": {
+                    "url": "https://www.google.com"
+                  }
                 }
-            ]
-        }
-    ]
-}
-response.json(jsonresponse);
+              ],
+              "imageDisplayOptions": "WHITE"
+            }
+          }
+        ]
+      }
+    }
+  }
+}response.json(jsonresponse);
 });
 
 app.listen(port, function() {
