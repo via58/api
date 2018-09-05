@@ -127,7 +127,7 @@ response.json(Number(result));
 app.post('/webhook',function(request,response){
 var tokenFromRequest=request.body.responseId;
 var jsonresponse = {
-    "conversationToken": tokenFromRequest,
+    "conversationToken": "{\"state\":null,\"data\":{}}",
     "expectUserResponse": true,
     "expectedInputs": [
         {
