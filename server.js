@@ -125,12 +125,9 @@ response.json(Number(result));
 });
 /// dialog flow post method
 app.post('/webhook',function(request,response){
-
-var number1=request.body.queryResult.responseId;
-var number2=request.body.queryResult.parameters.number_integer2;
-const result =Math.round(number1)+ Math.round(number2);
+var tokenFromRequest=request.body.responseId;
 var jsonresponse = {
-    "conversationToken": number1,
+    "conversationToken": tokenFromRequest,
     "expectUserResponse": true,
     "expectedInputs": [
         {
