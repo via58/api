@@ -196,6 +196,85 @@ var jsonresponse = {
 }
 response.json(jsonresponse);
 });
+app.get('/webookGet',function(request,response){
+
+var jsonresponse = {
+  "responseId": "982ae2eb-df30-4636-887b-45291a485260",
+  "queryResult": {
+    "queryText": "shops near me",
+    "parameters": {
+      "speedwayStore": [
+        "Store"
+      ]
+    },
+    "allRequiredParamsPresent": true,
+    "fulfillmentText": "Find Below",
+    "fulfillmentMessages": [
+      {
+        "platform": "ACTIONS_ON_GOOGLE",
+        "simpleResponses": {
+          "simpleResponses": [
+            {
+              "textToSpeech": "Find Below"
+            }
+          ]
+        }
+      },
+      {
+        "platform": "ACTIONS_ON_GOOGLE",
+        "basicCard": {
+          "title": "Texas",
+          "image": {
+            "imageUri": "https://firebasestorage.googleapis.com/v0/b/speedway-8f435.appspot.com/o/Speedway%20Texas.PNG?alt=media&token=b3a813c1-fd68-45f3-8663-50608c80b884",
+            "accessibilityText": "SpeedWay"
+          },
+          "buttons": [
+            {
+              "title": "Start Navigation",
+              "openUriAction": {
+                "uri": "https://www.google.co.in/maps/search/speedway+gas+station+texas/@31.3146931,-102.6298962,6z"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": {
+          "text": [
+            "Find Below"
+          ]
+        }
+      }
+    ],
+    "outputContexts": [
+      {
+        "name": "projects/speedway-8f435/agent/sessions/6027c37e-b98c-7116-a73e-1bde1be01f49/contexts/storelocation1-followup",
+        "lifespanCount": 2,
+        "parameters": {
+          "speedwayStore": [
+            "Store"
+          ],
+          "speedwayStore.original": "shops"
+        }
+      }
+    ],
+    "intent": {
+      "name": "projects/speedway-8f435/agent/intents/76d9c6c5-4541-4e42-bb7a-e7e66c8a8abd",
+      "displayName": "Store Location1"
+    },
+    "intentDetectionConfidence": 1,
+    "languageCode": "en"
+  }
+}
+
+
+
+response.json(jsonresponse);
+
+
+
+
+})
 
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
